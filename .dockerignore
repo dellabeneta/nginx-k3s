@@ -1,0 +1,23 @@
+# Ignorar controle de versão
+.git
+.gitignore
+
+# Ignorar arquivos de CI/CD
+.github
+
+# Ignorar documentação (se for recriada)
+README.md
+
+# Ignorar manifestos de orquestração
+k3s/
+
+# Ignorar o próprio arquivo .dockerignore
+.dockerignore
+
+# Ignorar arquivos de IDE e sistema
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

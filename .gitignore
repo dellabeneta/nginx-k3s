@@ -1,0 +1,19 @@
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de ambiente
+.env*
+
+# Credenciais e configurações locais sensíveis
+kubeconfig
+*.kubeconfig
+
+# Logs
+*.log
