@@ -62,7 +62,7 @@ jobs:
       - name: Inject Dynamic Tag and Deploy to K3s
         run: |
           TAG_VERSION=${{ github.run_id }}
-          MANIFEST_FILE="k3s/manifests.yaml"
+          MANIFEST_FILE="k3s/manifest.yaml"
 
           echo "--- Deploying version: $TAG_VERSION ---"
 
