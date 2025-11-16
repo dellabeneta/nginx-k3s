@@ -21,7 +21,7 @@
         }
         
         .container {
-            background: white;
+            background: rgb(206, 199, 199);
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             padding: 40px;
@@ -62,8 +62,8 @@
         
         .status {
             display: inline-block;
-            background: #4caf50;
-            color: white;
+            background: rgb(206, 199, 199);
+            color: rgb(54, 196, 50);
             padding: 10px 20px;
             border-radius: 5px;
             margin-top: 20px;
@@ -73,11 +73,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Nginx Rodando!</h1>
-        <p class="subtitle">Seu servidor está funcionando perfeitamente</p>
+        <h1>Nginx Rodando!</h1>
+        <p class="subtitle">Servidor Nginx funcionando perfeitamente</p>
         
         <div class="info">
             <p><strong>Servidor:</strong> k3s com Nginx Alpine</p>
+            <p><strong>Proxy HTTPS:</strong> Cloudflared Zero Trust</p>
             <p><strong>Data/Hora:</strong> <span id="datetime"></span></p>
             <p><strong>Host:</strong> <span id="hostname"></span></p>
         </div>
