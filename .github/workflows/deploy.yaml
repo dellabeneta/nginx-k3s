@@ -8,7 +8,6 @@ on:
     paths:
       - "html/index.html"
       - "k3s/manifest.yaml"
-      - "k3s/hpa.yaml"
       
 
 jobs:
@@ -68,14 +67,10 @@ jobs:
         run: |
           TAG_VERSION=${{ github.run_id }}
           MANIFEST_FILE="k3s/manifest.yaml"
-          HPA_FILE="k3s/hpa.yaml"
 
           echo "--- Deploying version: $TAG_VERSION ---"
 
           sed -i "s|__TAG_VERSION__|$TAG_VERSION|g" "$MANIFEST_FILE"
-          kubectl apply -f "$MANIFE ST_FILE"
+          kubectl apply -f "$MANIFEST_FILE"
           kubectl rollout status deployment/nginx-app --timeout=5m
 
-          echo "--- Deploying HPA ---"
-          sed -i "s|__TAG_VERSION__|$TAG_VERSION|g" "$HPA_FILE"
-          kubectl apply -f "$HPA_FILE"
