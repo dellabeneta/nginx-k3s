@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -19,7 +20,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .container {
             background: white;
             border-radius: 10px;
@@ -28,32 +29,32 @@
             max-width: 600px;
             text-align: center;
         }
-        
+
         h2 {
             color: #667eea;
             margin-bottom: 10px;
             font-size: 1.5em;
         }
-            
+
         .info {
             background: #f5f5f5;
             border-left: 4px solid #667eea;
             padding: 20px;
-            margin: 20px 0;
+            margin: 40px 0 20px 0;
             text-align: left;
             border-radius: 5px;
         }
-        
+
         .info p {
             color: #555;
             margin: 8px 0;
             font-size: 0.95em;
         }
-        
+
         .info strong {
             color: #333;
         }
-        
+
         .status {
             display: inline-block;
             color: #4caf50;
@@ -64,21 +65,22 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        
+
         <h2>Web server Nginx funcionando.</h2>
-        
+
         <div class="info">
             <p><strong>Container Image:</strong> ghcr.io/dellabeneta/nginx-app:19602906103</p>
             <p><strong>Proxy HTTPS:</strong> Cloudflared Zero Trust</p>
             <p><strong>Data/Hora:</strong> <span id="datetime"></span></p>
             <p><strong>Host:</strong> <span id="hostname"></span></p>
         </div>
-        
+
         <div class="status">✓ online e pronto</div>
     </div>
-    
+
     <script>
         // Atualiza data e hora
         function updateDateTime() {
@@ -90,4 +92,5 @@
         setInterval(updateDateTime, 1000);
     </script>
 </body>
+
 </html>
