@@ -14,4 +14,4 @@ COPY ./html /usr/share/nginx/html
 EXPOSE 80
 
 # Comando padrão
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/bin/sh", "-c", "sed -i \"s/{{HOSTNAME}}/$HOSTNAME/g\" /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"]

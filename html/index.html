@@ -72,10 +72,10 @@
         <h2>Web server Nginx funcionando</h2>
 
         <div class="info">
-            <p><strong>Container Image:</strong> ghcr.io/dellabeneta/nginx-app:latest</p>
+            <p><strong>Container Image:</strong> nginx:alpine</p>
             <p><strong>Proxy HTTPS:</strong> Cloudflared Zero Trust</p>
             <p><strong>Data/Hora:</strong> <span id="datetime"></span></p>
-            <p><strong>Host:</strong> <span id="hostname"></span></p>
+            <p><strong>Host:</strong> <span id="hostname">{{HOSTNAME}}</span></p>
         </div>
 
         <div class="status">✓ online</div>
@@ -86,7 +86,6 @@
         function updateDateTime() {
             const now = new Date();
             document.getElementById('datetime').textContent = now.toLocaleString('pt-BR');
-            document.getElementById('hostname').textContent = window.location.hostname;
         }
         updateDateTime();
         setInterval(updateDateTime, 1000);
