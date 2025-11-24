@@ -9,13 +9,20 @@ export const options = {
             startRate: 100,
             timeUnit: '1s',
             preAllocatedVUs: 50,
-            maxVUs: 1000,
+            maxVUs: 3000,
             stages: [
-                { target: 500, duration: '30s' },  // Estágio 0
-                { target: 2000, duration: '1m' },  // Estágio 1
-                { target: 4000, duration: '2m' },  // Estágio 2
-                { target: 4000, duration: '3m' },  // Estágio 3
-                { target: 0, duration: '1m' },     // Estágio 4
+                { target: 100, duration: '1m' },   // Aquecimento
+                { target: 200, duration: '1m' },   // Subindo (x2)
+                { target: 400, duration: '1m' },   // Subindo (x2)
+                { target: 800, duration: '1m' },   // Subindo (x2)
+                { target: 1600, duration: '1m' },  // Subindo (x2)
+                { target: 2000, duration: '1m' },  // Ajuste final para 2000
+                { target: 2000, duration: '3m' },  // Sustentação
+                { target: 1000, duration: '1m' },  // Descendo (/2)
+                { target: 500, duration: '1m' },   // Descendo (/2)
+                { target: 250, duration: '1m' },   // Descendo (/2)
+                { target: 125, duration: '1m' },   // Descendo (/2)
+                { target: 100, duration: '1m' },   // Finalizando
             ],
         },
     },
@@ -27,11 +34,18 @@ export const options = {
 
 // Nomes amigáveis para exibir no console
 const stageConfigs = [
-    { duration: 30000, name: "🔥 AQUECIMENTO: Subindo para 500 RPS" },
-    { duration: 60000, name: "🚀 CARGA: Acelerando para 2000 RPS (HPA deve ativar)" },
-    { duration: 120000, name: "💥 ESTRESSE: Forçando até 4000 RPS (Teste de Limite)" },
-    { duration: 180000, name: "🧱 SUSTENTAÇÃO: Segurando 4000 RPS (Estabilidade)" },
-    { duration: 60000, name: "❄️ RESFRIAMENTO: Descendo para 0 RPS" },
+    { duration: 60000, name: "🔥 AQUECIMENTO: Mantendo 100 RPS" },
+    { duration: 60000, name: "↗️ SUBINDO: 200 RPS" },
+    { duration: 60000, name: "↗️ SUBINDO: 400 RPS" },
+    { duration: 60000, name: "↗️ SUBINDO: 800 RPS" },
+    { duration: 60000, name: "↗️ SUBINDO: 1600 RPS" },
+    { duration: 60000, name: "🚀 PICO: Alcançando 2000 RPS" },
+    { duration: 180000, name: "🧱 SUSTENTAÇÃO: Segurando 2000 RPS" },
+    { duration: 60000, name: "↘️ DESCENDO: 1000 RPS" },
+    { duration: 60000, name: "↘️ DESCENDO: 500 RPS" },
+    { duration: 60000, name: "↘️ DESCENDO: 250 RPS" },
+    { duration: 60000, name: "↘️ DESCENDO: 125 RPS" },
+    { duration: 60000, name: "❄️ RESFRIAMENTO: Voltando a 100 RPS" },
 ];
 
 let lastLoggedStage = -1;

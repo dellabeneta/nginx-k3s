@@ -20,13 +20,13 @@ spec:
       - name: nginx
         image: ghcr.io/dellabeneta/nginx-app:__TAG_VERSION__
         imagePullPolicy: Always
-        resources:
-          requests:
-            memory: "32Mi"
-            cpu: "25m"
-          limits:
-            memory: "64Mi"
-            cpu: "50m"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
         ports:
         - containerPort: 80
           name: http
@@ -106,10 +106,27 @@ spec:
     name: nginx-app
   minReplicas: 3
   maxReplicas: 50
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+      - type: Pods
+        value: 4
+        periodSeconds: 15
+      selectPolicy: Max
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
   metrics:
   - type: Resource
     resource:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 70
+        averageUtilization: 60
