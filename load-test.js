@@ -73,6 +73,6 @@ export default function () {
         }
     }
 
-    const res = http.get('http://nginx.dellabeneta.io');
+    const res = http.get('https://nginx.dellabeneta.io');
     check(res, { 'status was 200': (r) => r.status == 200 });
 }
