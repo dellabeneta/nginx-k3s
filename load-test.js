@@ -9,20 +9,17 @@ export const options = {
             startRate: 100,
             timeUnit: '1s',
             preAllocatedVUs: 50,
-            maxVUs: 3000,
+            maxVUs: 750,
             stages: [
-                { target: 100, duration: '1m' },   // Aquecimento
-                { target: 200, duration: '1m' },   // Subindo (x2)
-                { target: 400, duration: '1m' },   // Subindo (x2)
-                { target: 800, duration: '1m' },   // Subindo (x2)
-                { target: 1600, duration: '1m' },  // Subindo (x2)
-                { target: 2000, duration: '1m' },  // Ajuste final para 2000
-                { target: 2000, duration: '3m' },  // Sustentação
-                { target: 1000, duration: '1m' },  // Descendo (/2)
-                { target: 500, duration: '1m' },   // Descendo (/2)
-                { target: 250, duration: '1m' },   // Descendo (/2)
-                { target: 125, duration: '1m' },   // Descendo (/2)
-                { target: 100, duration: '1m' },   // Finalizando
+                { target: 50, duration: '1m' },    // Aquecimento
+                { target: 100, duration: '1m' },   // Subindo
+                { target: 200, duration: '1m' },   // Subindo
+                { target: 400, duration: '1m' },   // Subindo
+                { target: 500, duration: '1m' },   // Ajuste final para 500
+                { target: 500, duration: '1m' },   // Sustentação
+                { target: 250, duration: '1m' },   // Descendo
+                { target: 125, duration: '1m' },   // Descendo
+                { target: 50, duration: '1m' },    // Finalizando
             ],
         },
     },
@@ -34,18 +31,15 @@ export const options = {
 
 // Nomes amigáveis para exibir no console
 const stageConfigs = [
-    { duration: 60000, name: "🔥 AQUECIMENTO: Mantendo 100 RPS" },
-    { duration: 60000, name: "↗️ SUBINDO: 200 RPS" },
-    { duration: 60000, name: "↗️ SUBINDO: 400 RPS" },
-    { duration: 60000, name: "↗️ SUBINDO: 800 RPS" },
-    { duration: 60000, name: "↗️ SUBINDO: 1600 RPS" },
-    { duration: 60000, name: "🚀 PICO: Alcançando 2000 RPS" },
-    { duration: 180000, name: "🧱 SUSTENTAÇÃO: Segurando 2000 RPS" },
-    { duration: 60000, name: "↘️ DESCENDO: 1000 RPS" },
-    { duration: 60000, name: "↘️ DESCENDO: 500 RPS" },
-    { duration: 60000, name: "↘️ DESCENDO: 250 RPS" },
-    { duration: 60000, name: "↘️ DESCENDO: 125 RPS" },
-    { duration: 60000, name: "❄️ RESFRIAMENTO: Voltando a 100 RPS" },
+    { duration: 60000, name: "🔥 AQUECIMENTO: Mantendo 50 RPS" },
+    { duration: 60000, name: "↗️  SUBINDO: 100 RPS" },
+    { duration: 60000, name: "↗️  SUBINDO: 200 RPS" },
+    { duration: 60000, name: "↗️  SUBINDO: 400 RPS" },
+    { duration: 60000, name: "🚀 PICO: Alcançando 500 RPS" },
+    { duration: 60000, name: "🧱 SUSTENTAÇÃO: Segurando 500 RPS" },
+    { duration: 60000, name: "↘️  DESCENDO: 250 RPS" },
+    { duration: 60000, name: "↘️  DESCENDO: 125 RPS" },
+    { duration: 60000, name: "❄️ RESFRIAMENTO: Voltando a 50 RPS" },
 ];
 
 let lastLoggedStage = -1;
