@@ -6,19 +6,20 @@ export const options = {
     scenarios: {
         stress_test: {
             executor: 'ramping-arrival-rate',
-            startRate: 100,
+            startRate: 50,
             timeUnit: '1s',
             preAllocatedVUs: 50,
-            maxVUs: 750,
+            maxVUs: 1500,
             stages: [
                 { target: 50, duration: '1m' },    // Aquecimento
-                { target: 100, duration: '1m' },   // Subindo
                 { target: 200, duration: '1m' },   // Subindo
                 { target: 400, duration: '1m' },   // Subindo
-                { target: 500, duration: '1m' },   // Ajuste final para 500
-                { target: 500, duration: '1m' },   // Sustentação
+                { target: 600, duration: '1m' },   // Subindo
+                { target: 1000, duration: '1m' },   // Ajuste final para 500
+                { target: 1000, duration: '1m' },   // Sustentação
+                { target: 500, duration: '1m' },   // Descendo
                 { target: 250, duration: '1m' },   // Descendo
-                { target: 125, duration: '1m' },   // Descendo
+                { target: 100, duration: '1m' },   // Descendo
                 { target: 50, duration: '1m' },    // Finalizando
             ],
         },
@@ -32,14 +33,14 @@ export const options = {
 // Nomes amigáveis para exibir no console
 const stageConfigs = [
     { duration: 60000, name: "🔥 AQUECIMENTO: Mantendo 50 RPS" },
-    { duration: 60000, name: "↗️  SUBINDO: 100 RPS" },
     { duration: 60000, name: "↗️  SUBINDO: 200 RPS" },
     { duration: 60000, name: "↗️  SUBINDO: 400 RPS" },
-    { duration: 60000, name: "🚀 PICO: Alcançando 500 RPS" },
-    { duration: 60000, name: "🧱 SUSTENTAÇÃO: Segurando 500 RPS" },
+    { duration: 60000, name: "↗️  SUBINDO: 600 RPS" },
+    { duration: 60000, name: "🚀 PICO: Alcançando 1000 RPS" },
+    { duration: 60000, name: "🧱 SUSTENTAÇÃO: Segurando 1000 RPS" },
+    { duration: 60000, name: "↘️  DESCENDO: 500 RPS" },
     { duration: 60000, name: "↘️  DESCENDO: 250 RPS" },
-    { duration: 60000, name: "↘️  DESCENDO: 125 RPS" },
-    { duration: 60000, name: "❄️ RESFRIAMENTO: Voltando a 50 RPS" },
+    { duration: 60000, name: "❄️  RESFRIAMENTO: Voltando a 50 RPS" },
 ];
 
 let lastLoggedStage = -1;
